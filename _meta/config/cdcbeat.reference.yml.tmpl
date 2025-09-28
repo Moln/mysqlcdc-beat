@@ -1,0 +1,30 @@
+################### mysql cdcbeat Configuration Example #########################
+
+############################# mysql cdcbeat ######################################
+
+cdcbeat:
+  # Defines how often an event is sent to the output
+  dbs:
+    - addr: 127.0.0.1
+      user: root
+      password: root
+      charset: utf8mb4
+      server_id: 123
+      dump:
+        execution_path: mysqldump
+        databases:
+          - db1
+
+        # Will override Databases, tables is in database table_db
+        tables:
+          - table1
+        table_db: db1
+
+        ignore_tables:
+          - table1
+          - table2
+      heartbeat_period: 10
+      include_table_regex:
+        - log_.*
+      exclude_table_regex:
+        - log_.*

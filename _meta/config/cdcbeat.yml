@@ -1,0 +1,25 @@
+################### mysql cdcbeat Configuration Example #########################
+
+############################# mysql cdcbeat ######################################
+logging:
+  level: debug
+  to_stderr: true
+  add_caller: false
+cdcbeat:
+  # Defines how often an event is sent to the output
+  dbs:
+    - addr: 192.168.4.82
+      user: root
+      password: root
+#      dump:
+#        databases:
+#          - data_report_100003
+      include_table_regex:
+        - data_report_100003\.first.*
+#  registry:
+#    path: 'position.yml'
+
+monitoring.enabled: false
+
+output.console:
+   pretty: true

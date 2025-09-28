@@ -1,0 +1,15 @@
+################### mysql cdcbeat Configuration Example #########################
+
+############################# mysql cdcbeat ######################################
+logging.level: debug
+cdcbeat:
+  # Defines how often an event is sent to the output
+  dbs:
+    - addr: 127.0.0.1
+      user: root
+      password: root
+      dump:
+        dbs:
+          - data_report_100003
+output.console:
+   pretty: true
